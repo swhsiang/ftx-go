@@ -11,7 +11,7 @@ const (
 	FtxAPIMarkets    = "markets"
 )
 
-func GenerateApiUrl(endpoint string) string {
+func generateApiUrl(endpoint string) string {
 	u, err := url.Parse(FtxServer)
 	if err != nil {
 		panic("invalid url")
