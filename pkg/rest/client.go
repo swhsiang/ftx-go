@@ -36,12 +36,10 @@ func (header *FtxClientHeader) generateReqSignature(httpMethod string, url strin
 
 }
 
-// func (header *FtxClientHeader) prepareRequest(req *fasthttp.Request, FtxAPIResource string, httpMethod string, queryMap map[string]string) {
-func (header *FtxClientHeader) prepareRequest(req *fasthttp.Request, FtxAPIResource string, httpMethod string) {
+func (header *FtxClientHeader) prepareRequest(req *fasthttp.Request, FtxAPIResource string, httpMethod string, queryMap map[string]string) {
 
 	req.Header.SetMethod(httpMethod)
-	// _url := generateApiUrl(FtxAPIResource, queryMap)
-	_url := generateApiUrl(FtxAPIResource)
+	_url := generateApiUrl(FtxAPIResource, queryMap)
 
 	req.SetRequestURI(_url)
 
@@ -51,12 +49,10 @@ func (header *FtxClientHeader) prepareRequest(req *fasthttp.Request, FtxAPIResou
 	req.Header.Add("FTX-TS", string(header.timestamp))
 }
 
-// func Do(header *FtxClientHeader, httpMethod string, ftxResource string, queryMap map[string]string) {
-func Do(header *FtxClientHeader, httpMethod string, ftxResource string) {
+func Do(header *FtxClientHeader, httpMethod string, ftxResource string, queryMap map[string]string) {
 
 	req := fasthttp.AcquireRequest()
-	// header.prepareRequest(req, ftxResource, httpMethod, queryMap)
-	header.prepareRequest(req, ftxResource, httpMethod)
+	header.prepareRequest(req, ftxResource, httpMethod, queryMap)
 
 	resp := fasthttp.AcquireResponse()
 	defer func() {
