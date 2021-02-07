@@ -7,11 +7,14 @@ import (
 )
 
 const (
-	FtxServer            = "https://ftx.com/api"
-	FtxAPISubaccount     = "subaccounts"
-	FtxAPIMarkets        = "markets"
-	FtxAPIOrderbook      = "orderbook"
-	FtxAPITrades         = "trades"
+	// Basic
+	FtxServer        = "https://ftx.com/api"
+	FtxAPISubaccount = "subaccounts"
+	//
+	FtxAPIMarkets   = "markets"
+	FtxAPIOrderbook = "orderbook"
+	FtxAPITrades    = "trades"
+	//
 	FtxAPIFutures        = "futures"
 	FtxAPIFutureStats    = "stats"
 	FtxAPIFundingRates   = "funding_rates"
@@ -19,10 +22,19 @@ const (
 	FtxAPIIndexesWeights = "weights"
 	FtxAPIExpiredFutures = "expired_futures"
 	FtxAPIIndexesCandles = "candles"
-	FtxAPIAccount        = "account"
-	FtxAPIPositions      = "positions"
-	FtxAPIWallet         = "wallet"
-	FtxAPICoins          = "coins"
+	//
+	FtxAPIAccount   = "account"
+	FtxAPIPositions = "positions"
+	//
+	FtxAPIWallet               = "wallet"
+	FtxAPIWalletCoins          = "coins"
+	FtxAPIWalletBalances       = "balances"
+	FtxAPIWalletAllBalances    = "all_balances"
+	FtxAPIWalletDepositAddress = "deposit_address"
+	FtxAPIWalletDeposits       = "deposits"
+	FtxAPIWalletWithdrawals    = "withdrawals"
+	FtxAPIWalletAirdrops       = "airdrops"
+	FtxAPIWalletSavedAddresses = "saved_addresses"
 )
 
 var baseUrl *url.URL
