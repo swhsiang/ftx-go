@@ -47,3 +47,17 @@ func (header *FtxClientHeader) GetTrades(marketName string, params ...int) {
 	p := path.Join(FtxAPIMarkets, marketName, FtxAPITrades)
 	Do(header, "GET", p, queryMap)
 }
+
+func (header *FtxClientHeader) GetFutures() {
+	Do(header, "GET", FtxAPIFutures, map[string]string{})
+}
+
+func (header *FtxClientHeader) GetFutureOf(futureName string) {
+	p := path.Join(FtxAPIFutures, futureName)
+	Do(header, "GET", p, map[string]string{})
+}
+
+func (header *FtxClientHeader) GetFutureStatsOf(futureName string) {
+	p := path.Join(FtxAPIFutures, futureName, FtxAPIFutureStats)
+	Do(header, "GET", p, map[string]string{})
+}

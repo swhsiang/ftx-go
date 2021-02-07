@@ -6,11 +6,13 @@ import (
 )
 
 const (
-	FtxServer        = "https://ftx.com/api"
-	FtxAPISubaccount = "subaccounts"
-	FtxAPIMarkets    = "markets"
-	FtxAPIOrderbook  = "orderbook"
-	FtxAPITrades     = "trades"
+	FtxServer         = "https://ftx.com/api"
+	FtxAPISubaccount  = "subaccounts"
+	FtxAPIMarkets     = "markets"
+	FtxAPIOrderbook   = "orderbook"
+	FtxAPITrades      = "trades"
+	FtxAPIFutures     = "futures"
+	FtxAPIFutureStats = "stats"
 )
 
 var baseUrl *url.URL
@@ -24,7 +26,7 @@ func init() {
 }
 
 func generateApiUrl(endpoint string, queryMap map[string]string) string {
-	u := baseUrl
+	u := *baseUrl
 	u.Path = path.Join(baseUrl.Path, endpoint)
 	q, _ := url.ParseQuery(u.RawQuery)
 	for k, v := range queryMap {
