@@ -61,3 +61,37 @@ func (header *FtxClientHeader) GetFutureStatsOf(futureName string) {
 	p := path.Join(FtxAPIFutures, futureName, FtxAPIFutureStats)
 	Do(header, "GET", p, map[string]string{})
 }
+
+func (header *FtxClientHeader) GetFundingRates() {
+	Do(header, "GET", FtxAPIFundingRates, map[string]string{})
+}
+
+func (header *FtxClientHeader) GetIndexWeightOf(index string) {
+	p := path.Join(FtxAPIIndexes, index, FtxAPIIndexesWeights)
+	Do(header, "GET", p, map[string]string{})
+}
+
+func (header *FtxClientHeader) GetExpiredFutures() {
+	Do(header, "GET", FtxAPIExpiredFutures, map[string]string{})
+}
+
+// GetHistoricalIndexOf /indexes/{market_name}/candles?resolution={resolution}&limit={limit}&start_time={start_time}&end_time={end_time}
+// marketName, resolution: required
+// params 1 element: index 0 == limit
+// params 2 elements: index 0 == start_time, index 1 == end_time
+// params 3 elements: index 0 == limit, index 1 == start_time, index 2 == end_time
+func (header *FtxClientHeader) GetHistoricalIndexOf(marketName string, resolution string, params ...string) {
+	queryMap := map[string]string{"resolution": resolution}
+	if len(params) == 1 {
+		queryMap["limit"] = params[0]
+	} else if len(params) == 2 {
+		queryMap["start_time"] = params[0]
+		queryMap["end_time"] = params[1]
+	} else if len(params) == 3 {
+		queryMap["limit"] = params[0]
+		queryMap["start_time"] = params[1]
+		queryMap["end_time"] = params[2]
+	}
+	p := path.Join(FtxAPIIndexes, marketName, FtxAPIIndexesCandles)
+	Do(header, "GET", p, queryMap)
+}

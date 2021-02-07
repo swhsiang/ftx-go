@@ -1,18 +1,28 @@
 package rest
 
 import (
+	"fmt"
 	"net/url"
 	"path"
 )
 
 const (
-	FtxServer         = "https://ftx.com/api"
-	FtxAPISubaccount  = "subaccounts"
-	FtxAPIMarkets     = "markets"
-	FtxAPIOrderbook   = "orderbook"
-	FtxAPITrades      = "trades"
-	FtxAPIFutures     = "futures"
-	FtxAPIFutureStats = "stats"
+	FtxServer            = "https://ftx.com/api"
+	FtxAPISubaccount     = "subaccounts"
+	FtxAPIMarkets        = "markets"
+	FtxAPIOrderbook      = "orderbook"
+	FtxAPITrades         = "trades"
+	FtxAPIFutures        = "futures"
+	FtxAPIFutureStats    = "stats"
+	FtxAPIFundingRates   = "funding_rates"
+	FtxAPIIndexes        = "indexes"
+	FtxAPIIndexesWeights = "weights"
+	FtxAPIExpiredFutures = "expired_futures"
+	FtxAPIIndexesCandles = "candles"
+	FtxAPIAccount        = "account"
+	FtxAPIPositions      = "positions"
+	FtxAPIWallet         = "wallet"
+	FtxAPICoins          = "coins"
 )
 
 var baseUrl *url.URL
