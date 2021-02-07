@@ -1,5 +1,6 @@
 # ftx-go
 
+Golang package to interact with FTX Exchange APIs. PRs are welcome.
 ## TODO
 
 * [ ] APIs
@@ -14,10 +15,6 @@
     * [ ] leveraged tokens 
     * [ ] options 
     * [ ] srm staking 
-
-
-
-
 * [ ] Authentication. Authenticate all requests.
 * [ ] Rate limit to api requests. Two packages at least. one for http and the other one for websocket.
 * [ ] pagination for http requests
