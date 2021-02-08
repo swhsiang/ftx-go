@@ -104,5 +104,24 @@ func (header *FtxClientHeader) GetSavedAddresses(coin ...string) {
 	Do(header, "GET", p, queryMap)
 }
 
+// CreateSavedAddresses
 // https://docs.ftx.com/#create-saved-addresses
+func (header *FtxClientHeader) CreateSavedAddresses(coin string, address string, addressName string, isPrimetrust string, tag ...string) {
+	p := path.Join(FtxAPIWallet, FtxAPIWalletSavedAddresses)
+	queryMap := map[string]string{}
+	queryMap["coin"] = coin
+	queryMap["address"] = address
+	queryMap["addressName"] = addressName
+	queryMap["isPrimetrust"] = isPrimetrust
+	if len(tag) > 0 {
+		queryMap["tag"] = tag[0]
+	}
+	Do(header, "POST", p, queryMap)
+}
+
+// DeleteSavedAddress Delete saved addresses
 // https://docs.ftx.com/#delete-saved-addresses
+func (header *FtxClientHeader) DeleteSavedAddress(saved_address_id string) {
+	p := path.Join(FtxAPIWallet, FtxAPIWalletSavedAddresses, saved_address_id)
+	Do(header, "DELETE", p, map[string]string{})
+}
