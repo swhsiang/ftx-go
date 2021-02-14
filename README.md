@@ -1,12 +1,17 @@
 # ftx-go
 
 Golang package to interact with FTX Exchange APIs. PRs are welcome.
+
+## Current Status
+
+Under development. There are some issues on API authentication. Don't use it for production.
+
 ## TODO
 
 * [ ] APIs
     * [x] account
     * [ ] market 
-    * [ ] wallet 
+    * [x] wallet 
     * [ ] orders
     * [ ] convert
     * [ ] spot margin 
